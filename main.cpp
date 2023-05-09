@@ -297,13 +297,13 @@ int main(int argc, char* argv[]) {
       }
     }
   }
-
 //scan downward the row from the top to bottom to sign the unsigned cells
   for (int i = 0; i < unassigned_cells.size(); i++) {
     for(int j = row_list.size()-1; j>=0; j--){
       if(unassigned_cells[i].height == row_list[j].height && row_list[j].total_width+unassigned_cells[i].width <=width){
         int cellIndex = stoi(unassigned_cells[i].name.erase(0,1));
         cell_list[cellIndex].y_coord = row_list[j].y_coord;
+        row_list[j].total_width+=unassigned_cells[i].width;
         break;
       }
     }
